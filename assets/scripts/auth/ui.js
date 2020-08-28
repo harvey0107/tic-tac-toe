@@ -1,4 +1,6 @@
 'use strict'
+const store = require('../store')
+
 const onSignUpSuccess = function (response) {
   $('#message').text('Wlecom To Our Family ' + response.user.email)
   $('#sign-up-form').trigger('reset')
@@ -8,6 +10,7 @@ const onSignUpFailure = function () {
 }
 
 const onSignInSuccess = function (response) {
+  store.user = response.user
   $('#message2').text('Nice To See You Again ' + response.user.email)
   $('#sign-up-form').trigger('reset')
 }
@@ -21,11 +24,20 @@ const onChangePasswordSuccess = function () {
 const onChangePasswordFailure = function () {
   $('#message3').text('Error on change password')
 }
+
+const onSignOutSuccess = function () {
+  $('#message4').text('See You Later')
+}
+const onSignOutFailure = function () {
+  $('#message4').text('Opps Somthing Wrong')
+}
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 }
