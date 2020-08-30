@@ -12,35 +12,25 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1 id="title"> Tic Tac Toe </h1>
 
-      <section>
-      <div class="playground">
-         <div class="row">
-            <div class="col" data-cell>O</div>
-            <div class="col" data-cell>X</div>
-            <div class="col" data-cell>O</div>
-         </div>
-         <div class="row">
-            <div class="col" data-cell>O</div>
-            <div class="col" data-cell>X</div>
-            <div class="col" data-cell>X</div>
-        </div>
-        <div class="row">
-            <div class="col" data-cell>X</div>
-            <div class="col" data-cell>O</div>
-            <div class="col" data-cell>O</div>
+      <div class="container">
+        <div class="row board h-100">
+
+            <div class="col-4 box"></div>
+            <div class="col-4 box"></div>
+            <div class="col-4 box"></div>
+
+
+            <div class="col-4 box"></div>
+            <div class="col-4 box"></div>
+            <div class="col-4 box"></div>
+
+
+            <div class="col-4 box"></div>
+            <div class="col-4 box"></div>
+            <div class="col-4 box"></div>
         </div>
       </div>
-
-    </section>
-
-    <section>
-      <div class="winning-message" id="winning-message">
-        <div data-winning-message-text></div>
-        <button id="restart">Restart</button>
-      </div>
-    </section>
 
     <section>
         <form id="sign-up-form">
