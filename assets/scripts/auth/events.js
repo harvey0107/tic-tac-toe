@@ -35,10 +35,23 @@ const onSignOut = function (event) {
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
 }
+
+const onStartGame = function (event) {
+  event.preventDefault()
+  // console.log(event)
+  const form = event.target
+  // console.log(form)
+  const data = getFormFields(form)
+  console.log(data)
+  api.startGame(data)
+    .then(ui.onStartGameSuccess)
+    .catch(ui.onStartGameFailure)
+}
+
 module.exports = {
   onSignUp: onSignUp,
   onSignIn: onSignIn,
   onChangePassword: onChangePassword,
-  onSignOut: onSignOut
-
+  onSignOut: onSignOut,
+  onStartGame: onStartGame
 }

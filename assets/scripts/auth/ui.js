@@ -31,6 +31,15 @@ const onSignOutSuccess = function () {
 const onSignOutFailure = function () {
   $('#message4').text('Opps Somthing Wrong')
 }
+
+const onStartGameSuccess = function (response) {
+  console.log(response.game)
+  $('#message4').text('Starting a New Game')
+}
+
+const onStartGameFailure = function () {
+  $('#message4').text('Opps Somthing Wrong')
+}
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -39,5 +48,7 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onStartGameSuccess,
+  onStartGameFailure
 }

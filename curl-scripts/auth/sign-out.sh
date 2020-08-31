@@ -1,4 +1,4 @@
-curl "https://tic-tac-toe-api-development.herokuapp.com/sign-out" \
+curl "https://tic-tac-toe-api-production.herokuapp.com/sign-out" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
