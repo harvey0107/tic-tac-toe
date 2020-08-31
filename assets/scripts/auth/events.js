@@ -47,7 +47,6 @@ const onStartGame = function (event) {
 
 const onPlay = function (event) {
   event.preventDefault()
-  console.log('clicked')
 }
 
 module.exports = {
@@ -57,4 +56,5 @@ module.exports = {
   onSignOut: onSignOut,
   onStartGame: onStartGame,
   onPlay: onPlay
+
 }
