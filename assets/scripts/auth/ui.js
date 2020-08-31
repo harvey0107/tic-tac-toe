@@ -33,6 +33,7 @@ const onSignOutFailure = function () {
 }
 
 const onStartGameSuccess = function (response) {
+  store.game = response.game
   console.log(response.game)
   $('#message4').text('Starting a New Game')
 }
@@ -40,6 +41,7 @@ const onStartGameSuccess = function (response) {
 const onStartGameFailure = function () {
   $('#message4').text('Opps Somthing Wrong')
 }
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
