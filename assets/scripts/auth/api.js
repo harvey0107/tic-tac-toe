@@ -45,27 +45,20 @@ const startGame = function (data) {
     method: 'POST',
     headers: {
       Authorization: 'Bearer ' + store.user.token
-    },
-    data: data
+    }
+    // data: data
   })
 }
 
-const playGame = function (index, value, over) {
+const playGame = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: {
-      game: {
-        cell: {
-          index: index,
-          value: value
-        },
-        over: over
-      }
-    }
+    data: data
+
   })
 }
 

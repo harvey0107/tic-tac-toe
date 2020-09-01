@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const authEvents = require('./events')
 
 const onSignUpSuccess = function (response) {
   $('#message').text('Wlecom To Our Family ' + response.user.email)
@@ -14,6 +15,9 @@ const onSignInSuccess = function (response) {
   store.user = response.user
   $('#message2').text('Nice To See You Again ' + response.user.email)
   $('#sign-in-form').trigger('reset')
+  $('#change-password-form').show()
+  $('#sign-out-form').show()
+  $('#start-game').show()
 }
 const onSignInFailure = function () {
   $('#message2').text('Opps, Try again!')
@@ -41,28 +45,29 @@ const onSignOutFailure = function () {
 const onStartGameSuccess = function (response) {
   store.game = response.game
   console.log(response.game)
+  store.board = response.game.cells
+  console.log(store.board)
   $('#message4').text('Starting a New Game')
   $('#board').show()
+  // authEvents.gameover = false
+  $('.box').text('')
+  // authEvents.player = 'X'
+  authEvents.newGameChange()
 }
 
 const onStartGameFailure = function () {
   $('#message4').text('Opps Somthing Wrong')
 }
-// const gameBoard
-// const playerOne = 'X'
-// const playerTwo = 'O'
-// const whenWin =[
-//     [0, 1, 2],
-//   	[3, 4, 5],
-//   	[6, 7, 8],
-//   	[0, 3, 6],
-//   	[1, 4, 7],
-//   	[2, 5, 8],
-//   	[0, 4, 8],
-//   	[6, 4, 2]
-// ]
-//
-// const cells =
+
+const onPlayGameSuccess = function (response) {
+  console.log(response)
+  store.update = response.game.cells
+}
+
+const onPlayGameFailure = function () {
+  console.log('failure')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -73,5 +78,7 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onStartGameSuccess,
-  onStartGameFailure
+  onStartGameFailure,
+  onPlayGameSuccess,
+  onPlayGameFailure
 }
