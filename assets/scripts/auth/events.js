@@ -1,6 +1,17 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+$('#board').hide()
+const box0 = $('#0')
+const box1 = $('#1')
+const box2 = $('#2')
+const box3 = $('#3')
+const box4 = $('#4')
+const box5 = $('#5')
+const box6 = $('#6')
+const box7 = $('#7')
+const box8 = $('#8')
+
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -38,16 +49,34 @@ const onSignOut = function (event) {
 
 const onStartGame = function (event) {
   event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.startGame(data)
+  api.startGame()
     .then(ui.onStartGameSuccess)
     .catch(ui.onStartGameFailure)
 }
+let player = 'X'
+
+const game = ['', '', '', '', '', '', '', '', '']
+
+const gameover = false
 
 const onPlay = function (event) {
-  event.preventDefault()
+  console.log(event.target)
+  const target = event.target
+  if ((gameover === false) && ($(target).text() === '')) {
+    const idNum = $(target).attr('id')
+
+    game[idNum] = player
+
+    $(target).text(player)
+
+    if (player === 'X') {
+      player = 'O'
+    } else {
+      player = 'X'
+    }
+  }
 }
+
 
 module.exports = {
   onSignUp: onSignUp,
