@@ -38,7 +38,7 @@ const onSignOutSuccess = function () {
   $('#sign-out-form').trigger('reset')
 }
 const onSignOutFailure = function () {
-  $('#message4').text('Opps Somthing Wrong')
+  $('#message4').text('Opps')
   $('#sign-out-form').trigger('reset')
 }
 
@@ -47,7 +47,7 @@ const onStartGameSuccess = function (response) {
   console.log(response.game)
   store.board = response.game.cells
   console.log(store.board)
-  $('#message4').text('Starting a New Game')
+  $('#message6').text('Starting a New Game')
   $('#board').show()
   // authEvents.gameover = false
   $('.box').text('')
