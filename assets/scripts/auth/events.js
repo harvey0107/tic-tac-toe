@@ -54,9 +54,7 @@ const onStartGame = function (event) {
     .catch(ui.onStartGameFailure)
 }
 let player = 'X'
-
 // const game = ['', '', '', '', '', '', '', '', '']
-
 let gameover = false
 const whenWin = [
   [0, 1, 2],
@@ -69,9 +67,7 @@ const whenWin = [
   [2, 4, 6]
 ]
 const winning = function (whenWin, game) {
-  console.log(game)
   let win = false
-  console.log(whenWin)
   for (let i = 0; i < whenWin.length; i++) {
     const winRow = whenWin[i]
     const p1 = game[winRow[0]]
@@ -134,6 +130,9 @@ const onPlay = function (event) {
   }
 }
 
+const onGamePlayTime = function () {
+}
+
 module.exports = {
   onSignUp: onSignUp,
   onSignIn: onSignIn,
@@ -142,5 +141,6 @@ module.exports = {
   onStartGame: onStartGame,
   onPlay: onPlay,
   gameover: gameover,
-  newGameChange: newGameChange
+  newGameChange: newGameChange,
+  onGamePlayTime: onGamePlayTime
 }
