@@ -3,15 +3,6 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 $('#board').hide()
-// const box0 = $('#0')
-// const box1 = $('#1')
-// const box2 = $('#2')
-// const box3 = $('#3')
-// const box4 = $('#4')
-// const box5 = $('#5')
-// const box6 = $('#6')
-// const box7 = $('#7')
-// const box8 = $('#8')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -53,9 +44,9 @@ const onStartGame = function (event) {
     .then(ui.onStartGameSuccess)
     .catch(ui.onStartGameFailure)
 }
-let player = 'X'
+store.player = 'X'
 // const game = ['', '', '', '', '', '', '', '', '']
-let gameover = false
+store.gameover = false
 const whenWin = [
   [0, 1, 2],
   [3, 4, 5],
@@ -82,50 +73,44 @@ const winning = function (whenWin, game) {
   }
   if (win) {
     $('#message5').text('Great win!')
-    gameover = true
+    store.gameover = true
   } else if (!game.includes('')) {
     $('#message5').text('Draw!')
-    gameover = true
+    store.gameover = true
   }
-}
-
-const newGameChange = function () {
-  player = 'X'
-  gameover = false
 }
 
 const onPlay = function (event) {
-  console.log(store.update)
   console.log(event.target)
-  if (player === '') {
-    player = 'X'
+  if (store.player === '') {
+    store.player = 'X'
   }
-  console.log(gameover)
+  console.log(store.gameover)
   const target = event.target
-  if ((gameover === false) && ($(target).text() === '')) {
+  if ((store.gameover === false) && ($(target).text() === '')) {
     const idNum = $(target).attr('id')
     const idNumInt = parseInt(idNum)
 
-    store.board[idNumInt] = player
+    store.board[idNumInt] = store.player
 
-    $(target).text(player)
+    $(target).text(store.player)
     winning(whenWin, store.board)
     const data = {
       game: {
         cell: {
           index: idNum,
-          value: player
+          value: store.player
         },
-        over: gameover
+        over: store.gameover
       }
     }
     api.playGame(data)
       .then(ui.onPlayGameSuccess)
       .catch(ui.onPlayGameFailure)
-    if (player === 'X') {
-      player = 'O'
+    if (store.player === 'X') {
+      store.player = 'O'
     } else {
-      player = 'X'
+      store.player = 'X'
     }
   }
 }
@@ -140,7 +125,6 @@ module.exports = {
   onSignOut: onSignOut,
   onStartGame: onStartGame,
   onPlay: onPlay,
-  gameover: gameover,
-  newGameChange: newGameChange,
+  // newGameChange: newGameChange,
   onGamePlayTime: onGamePlayTime
 }

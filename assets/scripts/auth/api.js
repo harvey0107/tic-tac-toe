@@ -62,11 +62,22 @@ const playGame = function (data) {
   })
 }
 
+const gameHistory = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp: signUp,
   signIn: signIn,
   changePassword: changePassword,
   signOut: signOut,
   startGame: startGame,
-  playGame: playGame
+  playGame: playGame,
+  gameHistory: gameHistory
 }
