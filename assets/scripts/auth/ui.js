@@ -35,9 +35,16 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  $('#message4').text('See You Later')
+  $('#message2').text('See You Later')
   $('#sign-out-form').trigger('reset')
+  $('#sign-up-form').show()
+  $('#sign-in-form').show()
+  $('#sign-out-form').hide()
+  $('#change-password-form').hide()
+  $('#start-game').hide()
+  $('#board').hide()
 }
+
 const onSignOutFailure = function () {
   $('#message4').text('Opps')
   $('#sign-out-form').trigger('reset')
