@@ -1,6 +1,5 @@
 'use strict'
 const store = require('../store')
-const authEvents = require('./events')
 
 const onSignUpSuccess = function (response) {
   $('#message').text('Wlecom To Our Family ' + response.user.email)
@@ -18,6 +17,8 @@ const onSignInSuccess = function (response) {
   $('#change-password-form').show()
   $('#sign-out-form').show()
   $('#start-game').show()
+  $('#sign-in-form').hide()
+  $('#sign-up-form').hide()
 }
 const onSignInFailure = function () {
   $('#message2').text('Opps, Try again!')
@@ -44,19 +45,17 @@ const onSignOutFailure = function () {
 
 const onStartGameSuccess = function (response) {
   store.game = response.game
-  console.log(response.game)
   store.board = response.game.cells
-  console.log(store.board)
-  $('#message6').text('Starting a New Game')
+  console.log('check')
+  $('#message8').text('Starting a New Game')
   $('#board').show()
   // authEvents.gameover = false
   $('.box').text('')
   // authEvents.player = 'X'
-  authEvents.newGameChange()
 }
 
 const onStartGameFailure = function () {
-  $('#message4').text('Opps Somthing Wrong')
+  $('#message8').text('opss')
 }
 
 const onPlayGameSuccess = function (response) {

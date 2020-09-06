@@ -24,10 +24,12 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
+  console.log('-----', event)
   const form = event.target
   const data = getFormFields(form)
-  api.signIn(data)
-    .then(ui.onSignInSuccess)
+  // Promise
+  api.signIn(data)// request
+    .then(ui.onSignInSuccess) // respnose 5 mins later
     .catch(ui.onSignInFailure)
 }
 
