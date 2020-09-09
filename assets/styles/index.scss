@@ -4,6 +4,8 @@
   height: 100vh;
   width: 100vh;
 }
+
+
 .title {
   display: flex;
   color: LightSkyBlue;
@@ -18,10 +20,30 @@
 
 #sign-up-form {
   color: LightSkyBlue;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 #sign-in-form {
   color: LightSkyBlue;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#change-password-form {
+  color: LightSkyBlue;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#sign-out-form {
+  color: LightSkyBlue;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .box {
