@@ -49,7 +49,7 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  $('#message2').text('See You Later')
+  $('#message4').text('See You Later')
   $('#sign-out-form').trigger('reset')
   $('#sign-up-form').show()
   $('#sign-in-form').show()
@@ -62,7 +62,6 @@ const onSignOutSuccess = function () {
 
   $('#board').hide()
 }
-
 const onSignOutFailure = function () {
   $('#message4').text('Opps')
   $('#sign-out-form').trigger('reset')
@@ -91,7 +90,7 @@ const onStartGameSuccess = function (response) {
 }
 
 const onStartGameFailure = function () {
-  $('#message8').text('opss')
+  $('#message4').text('Opps Somthing Wrong')
 }
 
 const onPlayGameSuccess = function (response) {
