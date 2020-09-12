@@ -15,7 +15,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('-----', event)
   const form = event.target
   const data = getFormFields(form)
   // Promise
@@ -83,11 +82,9 @@ const winning = function (whenWin, game) {
 }
 
 const onPlay = function (event) {
-  console.log(event.target)
   if (store.player === '') {
     store.player = 'X'
   }
-  console.log(store.gameover)
   const target = event.target
   if ((store.gameover === false) && ($(target).text() === '')) {
     const idNum = $(target).attr('id')

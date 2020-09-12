@@ -3,25 +3,24 @@ const store = require('../store')
 const api = require('./api')
 
 const onSignUpSuccess = function (response) {
-  $('#message2').text('Wlecom To Our Family ' + response.user.email)
+  $('#message2').text('Welcom my friden' + response.user.email)
   $('#sign-up-form').trigger('reset')
   $('#sign-up-form').hide()
 }
 const onSignUpFailure = function () {
-  $('#message').text('Opps, Try again!')
+  $('#message').text('Oops, try again!')
   $('#sign-up-form').trigger('reset')
 }
 
 const onSignInSuccess = function (response) {
   store.user = response.user
-  $('#message2').text('Nice To See You Again ' + response.user.email)
+  $('#message2').text('Nice to see you again ' + response.user.email)
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').show()
   $('#sign-out-form').show()
   $('#start-game').show()
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
-
   $('#message2').text('')
 }
 
@@ -31,11 +30,11 @@ const gamehistorysuccess = function (response) {
 }
 
 const gamehistoryfail = function () {
-  console.log('fail to get game history!!!')
+  $('#message7').text('fail to get game history!!!')
 }
 
 const onSignInFailure = function () {
-  $('#message2').text('Opps, Try again!')
+  $('#message2').text('Oops, Try again!')
   $('#sign-in-form').trigger('reset')
 }
 
@@ -63,23 +62,16 @@ const onSignOutSuccess = function () {
   $('#board').hide()
 }
 const onSignOutFailure = function () {
-  $('#message4').text('Opps')
+  $('#message4').text('Oops')
   $('#sign-out-form').trigger('reset')
 }
 
 const onStartGameSuccess = function (response) {
   store.game = response.game
-
-  console.log('onstartui', response.game)
   store.board = response.game.cells
-  console.log('onstartui', store.board)
-  console.log('onstartui', store.game.over)
   $('#message6').text('Starting a New Game')
-
   $('#board').show()
-  // authEvents.gameover = false
   $('.box').text('')
-  // authEvents.player = 'X'
 
   store.player = 'X'
   store.gameover = false
@@ -90,18 +82,14 @@ const onStartGameSuccess = function (response) {
 }
 
 const onStartGameFailure = function () {
-  $('#message4').text('Opps Somthing Wrong')
+  $('#message4').text('Oops Somthing Wrong')
 }
 
 const onPlayGameSuccess = function (response) {
-  console.log('updateui', response)
   store.update = response.game.cells
-  console.log('onplayui', store.update)
-  console.log('onplayui', store.game.over)
 }
 
 const onPlayGameFailure = function () {
-  console.log('failure')
 }
 
 module.exports = {
