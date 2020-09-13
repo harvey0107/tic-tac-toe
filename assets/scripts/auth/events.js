@@ -46,7 +46,6 @@ const onStartGame = function (event) {
     .catch(ui.onStartGameFailure)
 }
 store.player = 'X'
-// const game = ['', '', '', '', '', '', '', '', '']
 store.gameover = false
 const whenWin = [
   [0, 1, 2],
