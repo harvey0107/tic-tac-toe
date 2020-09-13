@@ -48,7 +48,6 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  $('#message4').text('See You Later')
   $('#sign-out-form').trigger('reset')
   $('#sign-up-form').show()
   $('#sign-in-form').show()
