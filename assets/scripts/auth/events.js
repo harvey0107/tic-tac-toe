@@ -72,10 +72,14 @@ const winning = function (whenWin, game) {
     }
   }
   if (win) {
+    $('#message5').show()
     $('#message5').text('Great win!')
+    $('#message5').hide(9000)
     store.gameover = true
   } else if (!game.includes('')) {
+    $('#message5').show()
     $('#message5').text('Draw!')
+    $('#message5').hide(9000)
     store.gameover = true
   }
 }

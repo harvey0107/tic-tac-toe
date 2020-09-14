@@ -9,8 +9,10 @@ const onSignUpSuccess = function (response) {
   $('#sign-up-form').hide()
 }
 const onSignUpFailure = function () {
-  $('#message').text('Oops, try again!')
+  $('#message').show()
+  $('#message').text('Failed!')
   $('#sign-up-form').trigger('reset')
+  $('#message').hide(9000)
 }
 
 const onSignInSuccess = function (response) {
@@ -28,7 +30,9 @@ const onSignInSuccess = function (response) {
 
 const gamehistorysuccess = function (response) {
   const x = response.games.length
+  $('#message7').show()
   $('#message7').text(`You have played ${x} number of games`)
+  $('#message7').hide(5000)
 }
 
 const gamehistoryfail = function () {
@@ -49,8 +53,9 @@ const onChangePasswordSuccess = function () {
 }
 const onChangePasswordFailure = function () {
   $('#message3').show()
-  $('#message3').text('Error on change password')
+  $('#message3').text('Error')
   $('#change-password-form').trigger('reset')
+  $('#message3').hide(6000)
 }
 
 const onSignOutSuccess = function () {
